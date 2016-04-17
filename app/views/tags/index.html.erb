@@ -1,0 +1,25 @@
+<div class="tags">
+  <h3>Create a new tag</h3>
+
+  <%= form_for Tag.new do |f| %>
+    <%= f.text_field :label %>
+    <%= f.submit 'Add new tag' %>
+  <% end %>
+
+
+  <h3>Existing tags</h3>
+  <% @tags.each do |tag| %>
+    <div class='tag-field'>
+      <table>
+        <tr><td>
+          <%= form_for tag do |f| %>
+            <%= f.text_field :label %>
+            <%= f.submit 'Update' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Delete', tag_path(tag), method: :delete, data: {confirm: "Are you sure you want to delete tag \"#{ tag.label }\""} %>
+        </td>
+    </div>
+  <% end %>
+</div>
