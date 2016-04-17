@@ -30,6 +30,8 @@ gem 'nokogiri'
 
 gem 'bootstrap-sass'
 
+gem 'dotenv-rails', groups: [:development, :staging, :production]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
