@@ -1,0 +1,29 @@
+<%= form_tag main_fetch_path, method: :post do %>
+  <%= select_tag "scan_url_id", options_from_collection_for_select(@scan_urls, "id", "name") %>
+  <%= submit_tag "Fetch new offers" %>
+<% end %>
+
+<h4>All scans</h4>
+
+<div class="col-sm-6">
+  <table class="table table-striped table-condensed">
+    <tr>
+      <th>Date</th>
+      <th>URL name</th>
+      <th>Pages</th>
+      <th>All offers</th>
+      <th>New offers</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @scans.each do |scan| %>
+      <tr>
+        <td><%= scan.created_at %></td>
+        <td><%= scan.scan_url.name %></td>
+        <td><%= scan.pages %></td>
+        <td><%= scan.all_offers %></td>
+        <td><%= scan.new_offers %> (<%= link_to 'Interesting', interesting_offers_scan_path(scan) %> | <%= link_to 'Hidden', hidden_offers_scan_path(scan) %> )</td>
+        <td><%= link_to "Hide all new offers", hide_offers_scan_path(scan), method: :post %>
+      </tr>
+    <% end %>
+  </table>
+</div>

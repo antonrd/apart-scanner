@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApartScanner</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="header">
+  <%= link_to 'Home', main_index_path %> |
+  <%= link_to "Interesting offers", interesting_offers_path %> |
+  <%= link_to "Hidden offers", hidden_offers_path %> |
+  <%= link_to "Tags", tags_path %> |
+  <%= link_to "URLs", scan_urls_path %> ||| <strong>Tags:</strong>
+  <% Tag.all.each do |tag| %>
+    <%= link_to tag.label, filter_offers_path(tag_id: tag.id) %> |
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

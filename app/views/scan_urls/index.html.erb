@@ -1,0 +1,29 @@
+<div class="scan_urls">
+  <h3>Create a new scan URL</h3>
+
+  <%= form_for ScanUrl.new do |f| %>
+    <%= f.text_field :name, placeholder: 'Name' %>
+    <%= f.text_field :url, placeholder: 'URL', class: 'long-field' %>
+    <%= f.text_field :url_suffix, placeholder: 'URL Suffix' %>
+    <%= f.submit 'Add new scan URL' %>
+  <% end %>
+
+
+  <h3>Existing scan URLs</h3>
+  <% @scan_urls.each do |scan_url| %>
+    <div class='scan-url-field'>
+      <table>
+        <tr><td>
+          <%= form_for scan_url do |f| %>
+            <%= f.text_field :name, placeholder: 'Name' %>
+            <%= f.text_field :url, placeholder: 'URL', class: 'long-field' %>
+            <%= f.text_field :url_suffix, placeholder: 'URL Suffix' %>
+            <%= f.submit 'Update' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Delete', scan_url_path(scan_url), method: :delete, data: {confirm: "Are you sure you want to delete scan URL \"#{ scan_url.name }\""} %>
+        </td>
+    </div>
+  <% end %>
+</div>

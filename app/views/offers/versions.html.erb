@@ -1,0 +1,13 @@
+<div class="offer">
+  <div class="offer-hash">
+    <%= link_to @offer.offer_hash, "http://www.imot.bg/#{ @offer.offer_hash }", target: "_blank" %>
+    Versions found: <%= @offer.offer_versions.count %>
+    <%= link_to 'Hide', hide_offer_path(@offer), method: :post %>
+  </div>
+
+<% @offer.offer_versions.by_date.each do |offer_version| %>
+  <div><%= offer_version.created_at %></div>
+  <div><%= render inline: offer_version.html_content %></div>
+<% end %>
+
+</div>

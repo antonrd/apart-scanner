@@ -1,0 +1,49 @@
+.offer {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.offer-hash {
+  background: #ddd;
+  padding: 5px;
+}
+
+.offer-versions {
+  background: #eee;
+  padding: 5px;
+}
+
+.offer-tags {
+  background: #eee;
+  padding: 5px;
+}
+
+a.hide-offer {
+  cursor: pointer;
+  background: #f66;
+  color: #fff;
+  padding: 3px;
+}
+
+a.unhide-offer {
+  cursor: pointer;
+  background: #66f;
+  color: #fff;
+  padding: 3px;
+}
+
+.offer-comments {
+  display: none;
+  padding: 10px;
+}
+
+span.show-comment-form {
+  cursor: pointer;
+}
+
+.offer-comment {
+  max-width: 500px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid #000;
+}

@@ -1,0 +1,3 @@
+<h4>Interesting offers for scan from <%= @scan.created_at %> [ID: <%= @scan.id %>]</h4>
+
+<%= render partial: 'offers/offers_list', locals: { offers: @offers } %>

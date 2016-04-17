@@ -1,0 +1,35 @@
+.tags {
+  padding: 10px;
+}
+
+.tag-field {
+  max-width: 300px;
+}
+
+.tags-form {
+  margin-right: 10px;
+}
+
+.tag-label {
+  background-color: #393;
+  color: #fff;
+  padding: 2px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+span.tag {
+  padding: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #bbb;
+  color: #000;
+  cursor: pointer;
+}
+
+span.tag.added {
+  background-color: #393;
+  color: #fff;
+}

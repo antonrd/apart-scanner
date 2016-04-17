@@ -1,0 +1,39 @@
+Found offers: <span class="offers-count"><%= offers.count %></span>
+
+<% offers.each do |offer| %>
+  <div class="offer" id="offer-<%= offer.id %>">
+    <div class="offer-hash">
+      <%= link_to offer.offer_hash, "http://www.imot.bg/#{ offer.offer_hash }", target: "_blank" %>
+      <% unless offer.hidden %>
+        <a class='hide-offer' data-offer-id=<%= offer.id %>>Hide</a>
+      <% else %>
+        <a class='unhide-offer' data-offer-id=<%= offer.id %>>Unhide</a>
+      <% end %>
+
+      <% Tag.all.each do |tag| %>
+        <span class="tag <%= "added" if offer.tags.include?(tag) %>" data-tag-id="<%= tag.id %>" data-offer-id="<%= offer.id %>">
+          <%= tag.label %>
+        </span>
+      <% end %>
+
+      <span class="button show-comment-form" data-offer-id="<%= offer.id %>">Toggle comments</span>
+
+      <div class="offer-comments" id="offer-comments-<%= offer.id %>">
+        <% offer.comments.each do |comment| %>
+          <div class="offer-comment"><%= comment.content %> <br><small>--- <%= comment.created_at %></small></div>
+        <% end %>
+
+        <textarea cols="80" rows="3"></textarea>
+        <div class="button offer-add-comment" data-offer-id="<%= offer.id %>">Add comment</div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="offer-versions">
+      <%= link_to "Versions: #{ offer.offer_versions.count }", versions_offer_path(offer), target: "_blank" %>
+      Latest from: <%= offer.last_version_date %>
+    </div>
+    <div><%= render inline: offer.last_version.html_content %></div>
+  </div>
+<% end %>

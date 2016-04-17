@@ -1,0 +1,18 @@
+<div class="col-sm-6">
+  <table class="table table-striped table-condensed">
+    <tr>
+      <th>Date</th>
+      <th>Pages</th>
+      <th>All offers</th>
+      <th>New offers</th>
+    </tr>
+    <% @scans.each do |scan| %>
+      <tr>
+        <td><%= link_to scan.created_at, offers_scan_path(scan) %></td>
+        <td><%= scan.pages %></td>
+        <td><%= scan.all_offers %></td>
+        <td><%= scan.new_offers %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

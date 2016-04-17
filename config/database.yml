@@ -1,0 +1,21 @@
+# config/database.yml example for local development and testing
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  host: localhost
+  username: pierrelombard
+  password:
+  port: 5432
+
+development:
+  <<: *default
+  database: apart_scanner_development
+
+test:
+  <<: *default
+  database: apart_scanner_test
+
+production:
+  <<: *default
+  database: apart_scanner_production
