@@ -20,7 +20,7 @@ class OffersController < ApplicationController
   end
 
   def versions
-    @offer = Offer.find(params[:id])
+    @offer = Offer.find_by(offer_hash: params[:id]) || Offer.find(params[:id])
   end
 
   def filter
